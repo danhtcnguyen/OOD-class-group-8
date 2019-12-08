@@ -1,15 +1,18 @@
 import java.util.*;
 
 public class RecordItemHandler {
-    private OrderItem oi;
     private Order order;
-    
-    public void newOrder(Order order) {
-        this.order = order;
+   
+    public RecordItemHandler() {
+        this.order = new Order();
     }
 
     public void addItem(String name, int qty) {
-        this.oi = new OrderItem(name, qty);
-        this.order.pushItem(this.oi);
+        OrderItem oi = new OrderItem(name, qty);
+        this.order.pushItem(oi);
+    }
+
+    public Order getOrder() {
+        return this.order;
     }
 }

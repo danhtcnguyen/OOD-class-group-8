@@ -4,7 +4,7 @@ public class TakenOrderQueue {
     private ArrayList<Order> list;
 
     public TakenOrderQueue() {
-        List<Order> list = new ArrayList<>();
+        this.list = new ArrayList<>();
     }
 
     public void pushOrder(Order order){

@@ -4,10 +4,10 @@ public class Order {
 	private ArrayList<OrderItem> list;
 
 	public Order() {
-		list = new ArrayList<OrderItem>();
+		this.list = new ArrayList<OrderItem>();
 	}
 
     public void pushItem(OrderItem item){
-        list.add(item);
+        this.list.add(item);
     }
 }

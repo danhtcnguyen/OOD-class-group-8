@@ -4,7 +4,7 @@ public class CompleteOrderHandler {
     private TakenOrderQueue takenQueue;
 
     public CompleteOrderHandler() {
-        TakenOrderQueue takenQueue = new TakenOrderQueue();
+        this.takenQueue = new TakenOrderQueue();
     }
 
     public void record(Order order) {
