@@ -1,11 +1,3 @@
-public class markCompleteHandler {
-    public void complete(Order order) {
-        activeOrderQueue.popOrder(Order)
-        completeOrderQueue.pushOrder(Order) 
-    }
- }
-
-
 public class recordItemHandler {
     public void addItem(String name, int qty) {
         oi = OrderItem(name, qty)
@@ -15,13 +7,21 @@ public class recordItemHandler {
 
 
 public class completeOrderHandler {
+    public completeOrderHandler() {
+        takenQueue = new takenOrderQueue();
+    }
+
     public void record(Order order) {
-        takenOrderQueue.pushOrder(order);
+        takenQueue.pushOrder(order);
     }
 }
 
 
 public class TakenOrderQueue {
+    public TakenOrderQueue() {
+        List<Order> list = new ArrayList<>();
+    }
+
     public void pushOrder(Order order){
         list.add(order);
     }
