@@ -10,4 +10,8 @@ public class CompleteOrderHandler {
     public void record(Order order) {
         this.takenQueue.pushOrder(order);
     }
+
+    public ArrayList<Order> getQueue() {
+        return this.takenQueue.getQueue();
+    }
 }

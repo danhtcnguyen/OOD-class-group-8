@@ -10,4 +10,7 @@ public class Order {
     public void pushItem(OrderItem item){
         this.list.add(item);
     }
+    public String toString() {
+        return Arrays.toString(this.list.toArray());
+    }
 }

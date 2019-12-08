@@ -14,4 +14,8 @@ public class TakenOrderQueue {
     public void popOrder(Order order){
         this.list.remove(order);
     }
+
+    public ArrayList<Order> getQueue() {
+        return this.list;
+    }
 }

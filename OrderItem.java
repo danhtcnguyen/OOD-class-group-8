@@ -8,4 +8,7 @@ public class OrderItem {
 		this.name = name;
 		this.qty = qty;
 	}
+    public String toString() {
+        return name + ", " + qty;
+    }
 }

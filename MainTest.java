@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class MainTest {
     public static void main(String[] args) {
@@ -23,5 +23,6 @@ public class MainTest {
         
         completeHandler.record(addHandler.getOrder());
         System.out.println("Added order to queue");
+        System.out.println(Arrays.toString(completeHandler.getQueue().toArray()));
     }
 }
