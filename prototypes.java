@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class markCompleteHandler {
     public void complete(Order order) {
         activeOrderQueue.popOrder(Order)
@@ -33,10 +35,20 @@ public class TakenOrderQueue {
 
 
 public class OrderItem {
+	private String name;
+	private int qty;
+	public OrderItem(String name, int qty) {
+		this.name = name;
+		this.qty = qty;
+	}
 }
 
 
 public class Order {
+	private ArrayList<OrderItem> list;
+	public Order() {
+		list = new ArrayList<OrderItem>();
+	}
     public void pushItem(OrderItem item){
         list.add(item);
     }
