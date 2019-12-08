@@ -5,7 +5,6 @@ public class recordItemHandler {
     }
 }
 
-
 public class completeOrderHandler {
     public completeOrderHandler() {
         takenQueue = new takenOrderQueue();
