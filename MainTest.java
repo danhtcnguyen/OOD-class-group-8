@@ -19,8 +19,8 @@ public class MainTest {
                 if (n==0) break;
 
                 addHandler.addItem(s,n);
-                System.out.println("Added item " + s + " at quantity " + n);
-
+                System.out.println("Order is now: ");
+                System.out.println(addHandler.getOrder());
                 s = in.nextLine();
             }
             System.out.println("Finished adding items");

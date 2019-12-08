@@ -11,6 +11,11 @@ public class Order {
         this.list.add(item);
     }
     public String toString() {
-        return Arrays.toString(this.list.toArray());
+        String ret = "";
+        for(int i=0; i<this.list.size(); ++i) {
+            ret += this.list.get(i).toString();
+            ret += '\n';
+        }
+        return ret;
     }
 }
