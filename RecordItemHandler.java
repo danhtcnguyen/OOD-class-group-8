@@ -3,7 +3,7 @@ import java.util.*;
 public class RecordItemHandler {
     private Order order;
    
-    public RecordItemHandler() {
+    public void newOrder() {
         this.order = new Order();
     }
 
