@@ -11,6 +11,6 @@ public class FrontMain {
 
         f.setSize(400,500);
         f.setLayout(null);
-        f.setVisible(true):
+        f.setVisible(true);
     }
 }
