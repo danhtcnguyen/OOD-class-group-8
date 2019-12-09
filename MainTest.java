@@ -27,7 +27,7 @@ public class MainTest {
             completeHandler.record(addHandler.getOrder());
 
             System.out.println("Added order to queue");
-            System.out.println(Arrays.toString(completeHandler.getQueue().toArray()));
+            System.out.println(completeHandler.strQueue());
 
             System.out.println("Enter 1 to create another order, or 0 to exit");
             cont = in.nextInt();
