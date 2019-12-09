@@ -1,13 +1,13 @@
 import java.awt.event.*; 
 import javax.swing.*; 
-
 class frontEnd extends JFrame implements ActionListener { 
     // JTextField 
     static JTextField t; 
     static JTextField t3;
     
     //JTextArea
-    static JTextArea t2; 
+    static JTextArea t2;
+	static JTextArea summary;
   
     // JFrame 
     static JFrame f; 
@@ -54,12 +54,14 @@ class frontEnd extends JFrame implements ActionListener {
         frontEnd te = new frontEnd(); 
   
         // addActionListener to button 
-        b.addActionListener(te); 
+        b.addActionListener(te);
+		b2.addActionListener(te);
   
         // create a object of JTextField with 16 columns 
         t = new JTextField(16); 
         t3 = new JTextField(16); 
-        t2 = new JTextArea(); 
+        t2 = new JTextArea();
+		summary = new JTextArea();
   
         // create a panel to add buttons and textfield 
         JPanel p = new JPanel(); 
@@ -70,6 +72,7 @@ class frontEnd extends JFrame implements ActionListener {
         p.add(l3);
         p.add(t3);
         p.add(t2);
+		p.add(summary);
         p.add(b); 
         p.add(b2);
         p.add(l);
@@ -86,7 +89,8 @@ class frontEnd extends JFrame implements ActionListener {
     // if the button is pressed 
     public void actionPerformed(ActionEvent e) 
     { 
-        String s = e.getActionCommand(); 
+        String s = e.getActionCommand();
+		System.out.println(s);
     
         if (s.equals("add")) {
 			// add the item to the current order
@@ -104,9 +108,11 @@ class frontEnd extends JFrame implements ActionListener {
             t.setText(""); 
             t3.setText("");
         }
-		else if (s.equals("complete")) {
+		if (s.equals("complete")) {
 			completeHandler.record(addHandler.getOrder());
 			addHandler.newOrder();
+			summary.setText(completeHandler.strQueue());
+			System.out.println("complete");
 		}
     } 
 }
