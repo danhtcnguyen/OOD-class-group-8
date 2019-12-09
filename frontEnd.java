@@ -19,10 +19,19 @@ class frontEnd extends JFrame implements ActionListener {
     static JLabel l; 
     static JLabel l2; 
     static JLabel l3;
+
+	// backend objects
+	RecordItemHandler addHandler;
+	CompleteOrderHandler completeHandler;
   
     // default constructor 
     frontEnd() 
-    { 
+    {
+		// setup backend
+		addHandler = new RecordItemHandler();
+        completeHandler = new CompleteOrderHandler();
+		// setup initial order
+		addHandler.newOrder();
     } 
   
     // main class 
@@ -68,7 +77,7 @@ class frontEnd extends JFrame implements ActionListener {
         f.add(p); 
   
         // set the size of frame 
-        f.setSize(300, 300); 
+        f.setSize(300, 300);
   
         f.show(); 
     } 
@@ -78,16 +87,25 @@ class frontEnd extends JFrame implements ActionListener {
     { 
         String s = e.getActionCommand(); 
     
-        if (s.equals("add")) { 
+        if (s.equals("add")) {
+			// add the item to the current order
+			String name = t.getText();
+			int qty = Integer.parseInt(t3.getText());
+			addHandler.addItem(name, qty);
+			
             // set the text of the label to the text of the field 
             l.setText(t.getText()); 
             
             //t2.setText(t2.getText() + t.getText() + "\n");
-            t2.setText(t2.getText() + t.getText() + " " + t3.getText() + ",");
+            t2.setText(addHandler.getOrder().toString());
             
             // set the text of field to blank 
             t.setText(""); 
             t3.setText("");
-        } 
+        }
+		else if (s.equals("complete")) {
+			completeHandler.record(addHandler.getOrder());
+			addHandler.newOrder();
+		}
     } 
 }
