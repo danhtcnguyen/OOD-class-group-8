@@ -1,5 +1,6 @@
 import java.awt.event.*; 
 import javax.swing.*; 
+
 class frontEnd extends JFrame implements ActionListener { 
     // JTextField 
     static JTextField t; 

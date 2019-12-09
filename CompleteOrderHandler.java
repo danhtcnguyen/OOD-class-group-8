@@ -11,7 +11,15 @@ public class CompleteOrderHandler {
         this.takenQueue.pushOrder(order);
     }
 
-    public ArrayList<Order> getQueue() {
-        return this.takenQueue.getQueue();
+    public String strQueue() {
+        ArrayList<Order> queue = this.takenQueue.getQueue();
+        String ret = "";
+
+        for (int i=0; i<queue.size(); ++i) {
+            ret += "Order " + (i+1) + "\n";
+            ret += queue.get(i).toString();
+            ret += "\n";
+        }
+        return ret;
     }
 }
