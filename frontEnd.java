@@ -1,118 +1,117 @@
-import java.awt.event.*; 
-import javax.swing.*; 
-class frontEnd extends JFrame implements ActionListener { 
-    // JTextField 
-    static JTextField t; 
-    static JTextField t3;
-    
-    //JTextArea
-    static JTextArea t2;
-	static JTextArea summary;
-  
-    // JFrame 
-    static JFrame f; 
-  
-    // JButton 
-    static JButton b; 
-    static JButton b2;
-  
-    // label to display text 
-    static JLabel l; 
-    static JLabel l2; 
-    static JLabel l3;
+import java.awt.event.*;
+import javax.swing.*;
+class FrontEnd extends JFrame implements ActionListener {
+    // JTextField
+    static JTextField text;
+    static JTextField text3;
 
-	// backend objects
-	RecordItemHandler addHandler;
-	CompleteOrderHandler completeHandler;
-  
-    // default constructor 
-    frontEnd() 
-    {
-		// setup backend
-		addHandler = new RecordItemHandler();
+    //JTextArea
+    static JTextArea text2;
+    static JTextArea summary;
+
+    // JFrame
+    static JFrame frameObject;
+
+    // JButton
+    static JButton button;
+    static JButton button2;
+
+    // Label to display text
+    static JLabel label;
+    static JLabel label2;
+    static JLabel label3;
+
+    // Backend objects
+    RecordItemHandler addHandler;
+    CompleteOrderHandler completeHandler;
+
+    // Default constructor
+    FrontEnd() {
+        // setup backend
+        addHandler = new RecordItemHandler();
         completeHandler = new CompleteOrderHandler();
-		// setup initial order
-		addHandler.newOrder();
-    } 
-  
-    // main class 
-    public static void main(String[] args) 
-    { 
-        // create a new frame to store text field and button 
-        f = new JFrame("textfield"); 
-  
-        // create a label to display text 
-        l = new JLabel("nothing entered"); 
-        l2 = new JLabel("Food Name");
-        l3 = new JLabel("Quantity");
-  
-        // create a new button 
-        b = new JButton("add"); 
-        b2 = new JButton("complete"); 
-  
-        // create a object of the text class 
-        frontEnd te = new frontEnd(); 
-  
-        // addActionListener to button 
-        b.addActionListener(te);
-		b2.addActionListener(te);
-  
-        // create a object of JTextField with 16 columns 
-        t = new JTextField(16); 
-        t3 = new JTextField(16); 
-        t2 = new JTextArea();
-		summary = new JTextArea();
-  
-        // create a panel to add buttons and textfield 
-        JPanel p = new JPanel(); 
-  
-        // add buttons and textfield to panel 
-        p.add(l2);
-        p.add(t); 
-        p.add(l3);
-        p.add(t3);
-        p.add(t2);
-		p.add(summary);
-        p.add(b); 
-        p.add(b2);
-        p.add(l);
-        
-        // add panel to frame 
-        f.add(p); 
-  
-        // set the size of frame 
-        f.setSize(300, 300);
-  
-        f.show(); 
-    } 
-  
-    // if the button is pressed 
-    public void actionPerformed(ActionEvent e) 
-    { 
-        String s = e.getActionCommand();
-		System.out.println(s);
-    
-        if (s.equals("add")) {
-			// add the item to the current order
-			String name = t.getText();
-			int qty = Integer.parseInt(t3.getText());
-			addHandler.addItem(name, qty);
-			
-            // set the text of the label to the text of the field 
-            l.setText(t.getText()); 
-            
+
+        // setup initial order
+        addHandler.newOrder();
+    }
+
+    // main class
+    public static void main(String[] args) {
+        // create a new frame to store text field and button
+        frameObject = new JFrame("textfield");
+
+        // create a label to display text
+        label = new JLabel("nothing entered");
+        label2 = new JLabel("Food Name");
+        label3 = new JLabel("Quantity");
+
+        // create a new button
+        button = new JButton("add");
+        button2 = new JButton("complete");
+
+        // create a object of the text class
+        FrontEnd front = new FrontEnd();
+
+        // addActionListener to button
+        button.addActionListener(front);
+        button2.addActionListener(front);
+
+        // create a object of JTextField with 16 columns
+        text = new JTextField(16);
+        text3 = new JTextField(16);
+        text2 = new JTextArea();
+        summary = new JTextArea();
+
+        // create a panel to add buttons and textfield
+        JPanel buttonPanel = new JPanel();
+
+        // add buttons and textfield to panel
+        buttonPanel.add(label2);
+        buttonPanel.add(text);
+        buttonPanel.add(label3);
+        buttonPanel.add(text3);
+        buttonPanel.add(text2);
+        buttonPanel.add(summary);
+        buttonPanel.add(button);
+        buttonPanel.add(button2);
+        buttonPanel.add(label);
+
+        // add panel to frame
+        frameObject.add(buttonPanel);
+
+        // set the size of frame
+        frameObject.setSize(300, 300);
+
+        frameObject.show();
+    }
+
+    // if the button is pressed
+    public void actionPerformed(ActionEvent e)
+    {
+        String action = e.getActionCommand();
+        System.out.println(action);
+
+        if (action.equals("add")) {
+            // add the item to the current order
+            String name = text.getText();
+            int qty = Integer.parseInt(text3.getText());
+            addHandler.addItem(name, qty);
+
+            // set the text of the label to the text of the field
+            label.setText(text.getText());
+
             //t2.setText(t2.getText() + t.getText() + "\n");
-            t2.setText(addHandler.getOrder().toString());
-            
-            // set the text of field to blank 
-            t.setText(""); 
-            t3.setText("");
+            text2.setText(addHandler.getOrder().toString());
+
+            // set the text of field to blank
+            text.setText("");
+            text3.setText("");
         }
-		if (s.equals("complete")) {
-			completeHandler.record(addHandler.getOrder());
-			addHandler.newOrder();
-			summary.setText(completeHandler.strQueue());
-			System.out.println("complete");
-		}
-    } 
+        if (action.equals("complete")) {
+            completeHandler.record(addHandler.getOrder());
+            addHandler.newOrder();
+            summary.setText(completeHandler.strQueue());
+            System.out.println("complete");
+        }
+    }
 }
