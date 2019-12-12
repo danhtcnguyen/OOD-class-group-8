@@ -38,7 +38,7 @@ class FrontEnd extends JFrame implements ActionListener {
     // main class
     public static void main(String[] args) {
         // create a new frame to store text field and button
-        frameObject = new JFrame("textfield");
+        frameObject = new JFrame("GUI");
 
         // create a label to display text
         label = new JLabel("nothing entered");
@@ -62,16 +62,28 @@ class FrontEnd extends JFrame implements ActionListener {
         text2 = new JTextArea();
         summary = new JTextArea();
 
-        // create a panel to add buttons and textfield
+        // create a panel to add buttons, food textfield and quantity textfield
         JPanel buttonPanel = new JPanel();
+
+        //Seperators for GUI Orginization
+        JSeparator separator1 = new JSeparator(SwingConstants.HORIZONTAL);
+        separator1.setPreferredSize(new java.awt.Dimension(500,3));
+        JSeparator separator2 = new JSeparator(SwingConstants.HORIZONTAL);
+        separator2.setPreferredSize(new java.awt.Dimension(500,3));
+        JSeparator separator3= new JSeparator(SwingConstants.HORIZONTAL);
+        separator3.setPreferredSize(new java.awt.Dimension(500,3));
+
 
         // add buttons and textfield to panel
         buttonPanel.add(label2);
         buttonPanel.add(text);
+        buttonPanel.add(separator1);
         buttonPanel.add(label3);
         buttonPanel.add(text3);
+        buttonPanel.add(separator2);
         buttonPanel.add(text2);
         buttonPanel.add(summary);
+        buttonPanel.add(separator3);
         buttonPanel.add(button);
         buttonPanel.add(button2);
         buttonPanel.add(label);
